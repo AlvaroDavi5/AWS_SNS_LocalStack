@@ -28,11 +28,15 @@ const SNS = new AWS.SNS(config);
 const listParams = {};
 
 const createParams = (topicName) => {
+	const extraParams = {};
+	if (topicName?.includes('.fifo'))
+		extraParams.ContentBasedDeduplication = 'false';
+
 	return {
 		Name: topicName,
 		Attributes: {
-			ContentBasedDeduplication: 'false',
 			FifoTopic: String(topicName?.includes('.fifo')),
+			...extraParams,
 		}
 	};
 };
