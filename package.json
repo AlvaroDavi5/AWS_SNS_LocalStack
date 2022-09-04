@@ -4,6 +4,12 @@
 	"main": "index.js",
 	"license": "MIT",
 	"scripts": {
+		"create-topic": "node ./scripts/create.js",
+		"delete-topic": "node ./scripts/delete.js",
+		"list-topics": "node ./scripts/list.js",
+		"subscribe-topic": "node ./scripts/subscribe.js",
+		"unsubscribe-topic": "node ./scripts/unsubscribe.js",
+		"publish-message": "node ./scripts/publish.js"
 	},
 	"dependencies": {
 		"aws-sdk": "^2.1192.0",
