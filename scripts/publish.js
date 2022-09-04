@@ -10,7 +10,7 @@ const data = {
 };
 
 publishMessage(
-	'email',
+	'sqs',
 	`${topicFullArn}${topicName}`,
 	topicName,
 	data,
