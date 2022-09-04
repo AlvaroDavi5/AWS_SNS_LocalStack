@@ -16,7 +16,7 @@ const messageGroupId = process.env.AWS_MESSAGE_GROUP_ID || 'Group1';
 AWS.config.update({ region: awsRegion });
 
 const config = {
-	endpoint: new AWS.Endpoint(topicUrl),
+	endpoint: new AWS.Endpoint(topicUrl), // https://sns.us-east-1.amazonaws.com
 	accessKeyId: accessKeyId,
 	secretAccessKey: secretAccessKey,
 	region: awsRegion,
