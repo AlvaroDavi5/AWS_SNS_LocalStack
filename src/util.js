@@ -34,7 +34,7 @@ const createParams = (topicName) => {
 			ContentBasedDeduplication: 'false',
 			FifoTopic: String(topicName?.includes('.fifo')),
 		}
-	}
+	};
 };
 
 const subscribeParams = (protocol, topicArn, to) => {
@@ -44,7 +44,7 @@ const subscribeParams = (protocol, topicArn, to) => {
 		Protocol: String(protocol),
 		TopicArn: String(topicArn),
 		Endpoint: String(endpoint),
-	}
+	};
 };
 
 const publishParams = (protocol, topicArn, topicName, { message, subject, phoneNumber, url, endpoint }) => {

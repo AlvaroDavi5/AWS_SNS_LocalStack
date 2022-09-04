@@ -17,7 +17,7 @@ module.exports = {
 	createTopic: async (topicName) => {
 		SNS.createTopic(createParams(topicName), function (err, data) {
 			if (err) {
-				console.log("Creation Error", err);
+				console.log("Creation Error:", err);
 			}
 			else {
 				const topicArn = data?.TopicArn;
@@ -28,7 +28,6 @@ module.exports = {
 	},
 
 	deleteTopic: async (topicArn) => {
-		console.log(topicArn)
 		SNS.deleteTopic({ TopicArn: topicArn }, function (err, data) {
 			if (err) {
 				console.log("Error to Delete:", err);
@@ -67,7 +66,7 @@ module.exports = {
 	publishMessage: async (protocol, topicArn, topicName, msgData) => {
 		SNS.publish(publishParams(protocol, topicArn, topicName, msgData), function (err, data) {
 			if (err) {
-				console.log("Send Error", err);
+				console.log("Send Error:", err);
 			}
 			else {
 				console.log("Send Successfully:");
