@@ -4,7 +4,7 @@ module.exports = {
 	listTopics: async () => {
 		SNS.listTopics(listParams, function (err, data) {
 			if (err) {
-				console.log("List Error:", err);
+				console.error("List Error:", err);
 			}
 			else {
 				const topics = data?.Topics || [];
@@ -17,7 +17,7 @@ module.exports = {
 	createTopic: async (topicName) => {
 		SNS.createTopic(createParams(topicName), function (err, data) {
 			if (err) {
-				console.log("Creation Error:", err);
+				console.error("Creation Error:", err);
 			}
 			else {
 				const topicArn = data?.TopicArn;
@@ -30,7 +30,7 @@ module.exports = {
 	deleteTopic: async (topicArn) => {
 		SNS.deleteTopic({ TopicArn: topicArn }, function (err, data) {
 			if (err) {
-				console.log("Error to Delete:", err);
+				console.error("Error to Delete:", err);
 			}
 			else {
 				console.log("Deleted Successfully:");
@@ -42,7 +42,7 @@ module.exports = {
 	subscribeTopic: async (protocol, topicArn, to) => {
 		SNS.subscribe(subscribeParams(protocol, topicArn, to), function (err, data) {
 			if (err) {
-				console.log("Subscribe Error:", err);
+				console.error("Subscribe Error:", err);
 			}
 			else {
 				console.log("Subscribed Successfully:");
@@ -54,7 +54,7 @@ module.exports = {
 	unsubscribeTopic: async (subscriptionArn) => {
 		SNS.unsubscribe({ SubscriptionArn: subscriptionArn }, function (err, data) {
 			if (err) {
-				console.log("Unsubscribe Error:", err);
+				console.error("Unsubscribe Error:", err);
 			}
 			else {
 				console.log("Unsubscribed Successfully:");
@@ -66,7 +66,7 @@ module.exports = {
 	publishMessage: async (protocol, topicArn, topicName, msgData) => {
 		SNS.publish(publishParams(protocol, topicArn, topicName, msgData), function (err, data) {
 			if (err) {
-				console.log("Send Error:", err);
+				console.error("Send Error:", err);
 			}
 			else {
 				console.log("Send Successfully:");
