@@ -20,6 +20,7 @@ const config = {
 	accessKeyId: accessKeyId,
 	secretAccessKey: secretAccessKey,
 	region: awsRegion,
+	apiVersion: 'latest',
 };
 
 // Create an SNS service object
