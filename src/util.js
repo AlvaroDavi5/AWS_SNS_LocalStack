@@ -46,7 +46,7 @@ const subscribeParams = (protocol, topicArn, to) => {
 	const endpoint = to || topicUrl;
 
 	return {
-		Protocol: String(protocol),
+		Protocol: String(protocol), // email | sms | http | https | sqs | lambda | application
 		TopicArn: String(topicArn),
 		Endpoint: String(endpoint),
 	};
@@ -87,7 +87,7 @@ const publishParams = (protocol, topicArn, topicName, { message, subject, phoneN
 		case 'sqs':
 			publishData.Endpoint = endpoint;
 			break;
-		case 'lamda':
+		case 'lambda':
 			publishData.Endpoint = endpoint;
 			break;
 		case 'application':
